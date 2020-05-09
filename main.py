@@ -1,92 +1,309 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'main.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
+from pydub import AudioSegment
+from pydub.playback import play
+import sys
+from an_main import *
+from chicken import *
+from sheep import *
+from cow import *
+from dog import *
+from horse import *
+from pig import *
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import (QWidget, QPushButton, QLineEdit,
+    QInputDialog, QApplication)
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1138, 704)
-        MainWindow.setMinimumSize(QtCore.QSize(150, 150))
-        MainWindow.setIconSize(QtCore.QSize(100, 300))
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(0, -20, 1141, 961))
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("images/fon2.png"))
-        self.label.setScaledContents(True)
-        self.label.setObjectName("label")
-        self.gridLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(150, 140, 820, 501))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
-        self.pushButton_2 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(200, 200))
-        self.pushButton_2.setMaximumSize(QtCore.QSize(150, 150))
-        self.pushButton_2.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("images/Food/cat_food.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_2.setIcon(icon)
-        self.pushButton_2.setIconSize(QtCore.QSize(370, 360))
-        self.pushButton_2.setAutoRepeat(False)
-        self.pushButton_2.setAutoExclusive(False)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.gridLayout.addWidget(self.pushButton_2, 0, 0, 1, 1)
-        self.pushButton_5 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_5.setMinimumSize(QtCore.QSize(200, 200))
-        self.pushButton_5.setMaximumSize(QtCore.QSize(150, 150))
-        self.pushButton_5.setText("")
-        self.pushButton_5.setIcon(icon)
-        self.pushButton_5.setIconSize(QtCore.QSize(100, 100))
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.gridLayout.addWidget(self.pushButton_5, 1, 1, 1, 1)
-        self.pushButton_3 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_3.setMinimumSize(QtCore.QSize(200, 200))
-        self.pushButton_3.setMaximumSize(QtCore.QSize(150, 150))
-        self.pushButton_3.setText("")
-        self.pushButton_3.setIcon(icon)
-        self.pushButton_3.setIconSize(QtCore.QSize(100, 100))
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.gridLayout.addWidget(self.pushButton_3, 1, 2, 1, 1)
-        self.pushButton_4 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_4.setMinimumSize(QtCore.QSize(200, 200))
-        self.pushButton_4.setMaximumSize(QtCore.QSize(150, 150))
-        self.pushButton_4.setText("")
-        self.pushButton_4.setIcon(icon)
-        self.pushButton_4.setIconSize(QtCore.QSize(100, 100))
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.gridLayout.addWidget(self.pushButton_4, 0, 2, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton.setMinimumSize(QtCore.QSize(200, 200))
-        self.pushButton.setMaximumSize(QtCore.QSize(150, 150))
-        self.pushButton.setText("")
-        self.pushButton.setIcon(icon)
-        self.pushButton.setIconSize(QtCore.QSize(100, 100))
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 1, 0, 1, 1)
-        self.pushButton_1 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_1.setMinimumSize(QtCore.QSize(200, 200))
-        self.pushButton_1.setMaximumSize(QtCore.QSize(150, 150))
-        self.pushButton_1.setText("")
-        self.pushButton_1.setIcon(icon)
-        self.pushButton_1.setIconSize(QtCore.QSize(100, 100))
-        self.pushButton_1.setObjectName("pushButton_1")
-        self.gridLayout.addWidget(self.pushButton_1, 0, 1, 1, 1)
-        MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+
+
+class MyWin(QtWidgets.QMainWindow):
+
+
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.init_handlers()
+        self.ui.pushButton_6.clicked.connect(self.play_question)
+
+
+
+    def init_handlers(self):
+        self.ui.pushButton.clicked.connect(self.show_window_2)
+        self.ui.pushButton_1.clicked.connect(self.show_window_3)
+        self.ui.pushButton_2.clicked.connect(self.show_window_4)
+        self.ui.pushButton_3.clicked.connect(self.show_window_5)
+        self.ui.pushButton_4.clicked.connect(self.show_window_6)
+        self.ui.pushButton_5.clicked.connect(self.show_window_7)
+
+
+
+    def show_window_2(self):
+        sound = AudioSegment.from_mp3('Sounds/Chicken_1.wav')
+        play(sound)
+        self.w2 = MyWin2()
+        self.w2.show()
+
+    def show_window_3(self):
+        sound = AudioSegment.from_mp3('Sounds/Sheep_1.wav')
+        play(sound)
+        self.w3 = MyWin3()
+        self.w3.show()
+
+    def show_window_4(self):
+        sound = AudioSegment.from_mp3('Sounds/Cow_1.wav')
+        play(sound)
+        self.w4 = MyWin4()
+        self.w4.show()
+
+    def show_window_5(self):
+        sound = AudioSegment.from_mp3('Sounds/Horse_1.wav')
+        play(sound)
+        self.w5 = MyWin5()
+        self.w5.show()
+
+    def show_window_6(self):
+        sound = AudioSegment.from_mp3('Sounds/Dog_1.wav')
+        play(sound)
+        self.w6 = MyWin6()
+        self.w6.show()
+
+    def show_window_7(self):
+        sound = AudioSegment.from_mp3('Sounds/Pig_1.wav')
+        play(sound)
+        self.w7 = MyWin7()
+        self.w7.show()
+
+    def play_question(self):
+        sound = AudioSegment.from_mp3('Sounds/main.wav')
+        play(sound)
+
+
+
+
+
+class MyWin2(QtWidgets.QMainWindow):
+
+
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow2()
+        self.ui.setupUi(self)
+        self.ui.pushButton_3.clicked.connect(self.back)
+        self.ui.pushButton.clicked.connect(self.play_sound)
+        self.setFixedSize(1130,700)
+        self.ui.pushButton_4.clicked.connect(self.play_question)
+        self.ui.pushButton_1.clicked.connect(self.play_footprint)
+        self.ui.pushButton_2.clicked.connect(self.play_food)
+
+    def play_question(self):
+        sound = AudioSegment.from_mp3('Sounds/main_2.wav')
+        play(sound)
+
+    def play_footprint(self):
+        sound = AudioSegment.from_mp3('Sounds/Chicken_footprint.wav')
+        play(sound)
+
+    def play_food(self):
+        sound = AudioSegment.from_mp3('Sounds/Chicken_food.wav')
+        play(sound)
+
+
+    def play_sound(self):
+        sound = AudioSegment.from_mp3('Sounds/Chicken.wav')
+        play(sound)
+
+    def back(self):
+        self.hide()
+
+
+class MyWin3(QtWidgets.QMainWindow):
+
+
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow3()
+        self.ui.setupUi(self)
+        self.ui.pushButton_3.clicked.connect(self.back)
+        self.ui.pushButton.clicked.connect(self.play_sound)
+        self.setFixedSize(1130,700)
+        self.ui.pushButton_4.clicked.connect(self.play_question)
+        self.ui.pushButton_1.clicked.connect(self.play_footprint)
+        self.ui.pushButton_2.clicked.connect(self.play_food)
+
+    def play_question(self):
+        sound = AudioSegment.from_mp3('Sounds/main_2.wav')
+        play(sound)
+
+    def play_footprint(self):
+        sound = AudioSegment.from_mp3('Sounds/Sheep_footprint.wav')
+        play(sound)
+
+    def play_food(self):
+        sound = AudioSegment.from_mp3('Sounds/Sheep_food.wav')
+        play(sound)
+
+
+    def play_sound(self):
+        sound = AudioSegment.from_mp3('Sounds/Sheep.wav')
+        play(sound)
+
+    def back(self):
+        self.hide()
+
+
+
+class MyWin4(QtWidgets.QMainWindow):
+
+
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow4()
+        self.ui.setupUi(self)
+        self.ui.pushButton_3.clicked.connect(self.back)
+        self.ui.pushButton.clicked.connect(self.play_sound)
+        self.setFixedSize(1130,700)
+        self.ui.pushButton_4.clicked.connect(self.play_question)
+        self.ui.pushButton_1.clicked.connect(self.play_footprint)
+        self.ui.pushButton_2.clicked.connect(self.play_food)
+
+    def play_question(self):
+        sound = AudioSegment.from_mp3('Sounds/main_2.wav')
+        play(sound)
+
+    def play_footprint(self):
+        sound = AudioSegment.from_mp3('Sounds/Cow_footprint.wav')
+        play(sound)
+
+    def play_food(self):
+        sound = AudioSegment.from_mp3('Sounds/Cow_food.wav')
+        play(sound)
+
+
+    def play_sound(self):
+        sound = AudioSegment.from_mp3('Sounds/Cow.wav')
+        play(sound)
+
+    def back(self):
+        self.hide()
+
+
+
+class MyWin5(QtWidgets.QMainWindow):
+
+
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow6()
+        self.ui.setupUi(self)
+        self.ui.pushButton_3.clicked.connect(self.back)
+        self.ui.pushButton.clicked.connect(self.play_sound)
+        self.setFixedSize(1130,700)
+        self.ui.pushButton_4.clicked.connect(self.play_question)
+        self.ui.pushButton_1.clicked.connect(self.play_footprint)
+        self.ui.pushButton_2.clicked.connect(self.play_food)
+
+
+    def play_question(self):
+        sound = AudioSegment.from_mp3('Sounds/main_2.wav')
+        play(sound)
+
+    def play_footprint(self):
+        sound = AudioSegment.from_mp3('Sounds/Horse_footprint.wav')
+        play(sound)
+
+    def play_food(self):
+        sound = AudioSegment.from_mp3('Sounds/Horse_food.wav')
+        play(sound)
+
+
+    def play_sound(self):
+        sound = AudioSegment.from_mp3('Sounds/Horse.wav')
+        play(sound)
+
+    def back(self):
+        self.hide()
+
+
+
+class MyWin6(QtWidgets.QMainWindow):
+
+
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow5()
+        self.ui.setupUi(self)
+        self.ui.pushButton_3.clicked.connect(self.back)
+        self.ui.pushButton.clicked.connect(self.play_sound)
+        self.setFixedSize(1130,700)
+        self.ui.pushButton_4.clicked.connect(self.play_question)
+        self.ui.pushButton_1.clicked.connect(self.play_footprint)
+        self.ui.pushButton_2.clicked.connect(self.play_food)
+
+    def play_question(self):
+        sound = AudioSegment.from_mp3('Sounds/main_2.wav')
+        play(sound)
+
+    def play_footprint(self):
+        sound = AudioSegment.from_mp3('Sounds/Dog_footprint.wav')
+        play(sound)
+
+    def play_food(self):
+        sound = AudioSegment.from_mp3('Sounds/Dog_food.wav')
+        play(sound)
+
+
+    def play_sound(self):
+        sound = AudioSegment.from_mp3('Sounds/Dog.wav')
+        play(sound)
+
+    def back(self):
+        self.hide()
+
+
+
+class MyWin7(QtWidgets.QMainWindow):
+
+
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow7()
+        self.ui.setupUi(self)
+        self.ui.pushButton_3.clicked.connect(self.back)
+        self.ui.pushButton.clicked.connect(self.play_sound)
+        self.setFixedSize(1130,700)
+        self.ui.pushButton_4.clicked.connect(self.play_question)
+        self.ui.pushButton_1.clicked.connect(self.play_footprint)
+        self.ui.pushButton_2.clicked.connect(self.play_food)
+
+    def play_question(self):
+        sound = AudioSegment.from_mp3('Sounds/main_2.wav')
+        play(sound)
+
+    def play_footprint(self):
+        sound = AudioSegment.from_mp3('Sounds/Pig_footprint.wav')
+        play(sound)
+
+    def play_food(self):
+        sound = AudioSegment.from_mp3('Sounds/Pig_food.wav')
+        play(sound)
+
+
+    def play_sound(self):
+        sound = AudioSegment.from_mp3('Sounds/Pig.wav')
+        play(sound)
+
+    def back(self):
+        self.hide()
+
+
+
+
+if __name__=="__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    myapp = MyWin()
+    myapp.setFixedSize(1130,700)
+    myapp.show()
+    sys.exit(app.exec_())
+
