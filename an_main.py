@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from random import *
 
 
 class Ui_MainWindow(object):
@@ -36,7 +37,15 @@ class Ui_MainWindow(object):
         self.pushButton_5.setMaximumSize(QtCore.QSize(150, 150))
         self.pushButton_5.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("images/Animals/Pig.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        a=randint(0,3)
+        if a==0:
+            icon.addPixmap(QtGui.QPixmap("images/Animals/Pig.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a==1:
+            icon.addPixmap(QtGui.QPixmap("images/Animals/Pig_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a==2:
+            icon.addPixmap(QtGui.QPixmap("images/Animals/Pig_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a==3:
+            icon.addPixmap(QtGui.QPixmap("images/Animals/Pig_3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_5.setIcon(icon)
         self.pushButton_5.setIconSize(QtCore.QSize(285, 400))
         self.pushButton_5.setCheckable(False)
@@ -48,7 +57,15 @@ class Ui_MainWindow(object):
         self.pushButton_4.setMaximumSize(QtCore.QSize(150, 150))
         self.pushButton_4.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("images/Animals/Dog.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        a2=randint(0,3)
+        if a2==0:
+            icon1.addPixmap(QtGui.QPixmap("images/Animals/Dog.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a2==1:
+            icon1.addPixmap(QtGui.QPixmap("images/Animals/Dog_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a2==2:
+            icon1.addPixmap(QtGui.QPixmap("images/Animals/Dog_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a2==3:
+            icon1.addPixmap(QtGui.QPixmap("images/Animals/Dog_3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_4.setIcon(icon1)
         self.pushButton_4.setIconSize(QtCore.QSize(330, 320))
         self.pushButton_4.setObjectName("pushButton_4")
@@ -58,7 +75,15 @@ class Ui_MainWindow(object):
         self.pushButton_3.setMaximumSize(QtCore.QSize(240, 150))
         self.pushButton_3.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("images/Animals/Horse.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        a3=randint(0,3)
+        if a3==0:
+            icon2.addPixmap(QtGui.QPixmap("images/Animals/Horse.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a3==1:
+            icon2.addPixmap(QtGui.QPixmap("images/Animals/Horse_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a3==2:
+            icon2.addPixmap(QtGui.QPixmap("images/Animals/Horse_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a3==3:
+            icon2.addPixmap(QtGui.QPixmap("images/Animals/Horse_3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_3.setIcon(icon2)
         self.pushButton_3.setIconSize(QtCore.QSize(320, 300))
         self.pushButton_3.setObjectName("pushButton_3")
@@ -69,7 +94,15 @@ class Ui_MainWindow(object):
         self.pushButton_2.setSizeIncrement(QtCore.QSize(0, 0))
         self.pushButton_2.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("images/Animals/Cow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        a4=randint(0,3)
+        if a4==0:
+            icon3.addPixmap(QtGui.QPixmap("images/Animals/Cow.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a4==1:
+            icon3.addPixmap(QtGui.QPixmap("images/Animals/Cow_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a4==2:
+            icon3.addPixmap(QtGui.QPixmap("images/Animals/Cow_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a4==3:
+            icon3.addPixmap(QtGui.QPixmap("images/Animals/Cow_3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_2.setIcon(icon3)
         self.pushButton_2.setIconSize(QtCore.QSize(290, 190))
         self.pushButton_2.setObjectName("pushButton_2")
@@ -79,7 +112,15 @@ class Ui_MainWindow(object):
         self.pushButton.setMaximumSize(QtCore.QSize(240, 150))
         self.pushButton.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("images/Animals/Chicken.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        a5=randint(0,3)
+        if a5==0:
+            icon4.addPixmap(QtGui.QPixmap("images/Animals/Chicken.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a5==1:
+            icon4.addPixmap(QtGui.QPixmap("images/Animals/Chicken_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a5==2:
+            icon4.addPixmap(QtGui.QPixmap("images/Animals/Chicken_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a5==3:
+            icon4.addPixmap(QtGui.QPixmap("images/Animals/Chicken_3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton.setIcon(icon4)
         self.pushButton.setIconSize(QtCore.QSize(260, 190))
         self.pushButton.setAutoRepeat(False)
@@ -96,7 +137,15 @@ class Ui_MainWindow(object):
         self.pushButton_1.setMaximumSize(QtCore.QSize(150, 150))
         self.pushButton_1.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("images/Animals/Sheep.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        a6=randint(0,3)
+        if a6==0:
+            icon5.addPixmap(QtGui.QPixmap("images/Animals/Sheep.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a6==1:
+            icon5.addPixmap(QtGui.QPixmap("images/Animals/Sheep_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a6==2:
+            icon5.addPixmap(QtGui.QPixmap("images/Animals/Sheep_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        elif a6==3:
+            icon5.addPixmap(QtGui.QPixmap("images/Animals/Sheep_3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_1.setIcon(icon5)
         self.pushButton_1.setIconSize(QtCore.QSize(300, 300))
         self.pushButton_1.setObjectName("pushButton_1")
@@ -124,6 +173,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_6.setText("")
         icon7 = QtGui.QIcon()
+
         icon7.addPixmap(QtGui.QPixmap("images/Question.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_6.setIcon(icon7)
         self.pushButton_6.setIconSize(QtCore.QSize(70, 100))

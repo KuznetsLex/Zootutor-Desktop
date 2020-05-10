@@ -11,7 +11,7 @@ from pig import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QWidget, QPushButton, QLineEdit,
     QInputDialog, QApplication)
-
+from random import *
 
 
 
@@ -26,6 +26,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.init_handlers()
         self.ui.pushButton_6.clicked.connect(self.play_question)
+        self.ui.pushButton_7.clicked.connect(self.back)
 
 
 
@@ -79,6 +80,8 @@ class MyWin(QtWidgets.QMainWindow):
         sound = AudioSegment.from_mp3('Sounds/main.wav')
         play(sound)
 
+    def back(self):
+        self.close()
 
 
 
@@ -182,7 +185,19 @@ class MyWin4(QtWidgets.QMainWindow):
 
 
     def play_sound(self):
-        sound = AudioSegment.from_mp3('Sounds/Cow.wav')
+        a=randint(0,5)
+        if a==0:
+            sound = AudioSegment.from_mp3('Sounds/Cow.wav')
+        elif a==1:
+            sound = AudioSegment.from_mp3('Sounds/Cow_2.wav')
+        elif a==2:
+            sound = AudioSegment.from_mp3('Sounds/Cow_3.wav')
+        elif a==3:
+            sound = AudioSegment.from_mp3('Sounds/Cow_4.wav')
+        elif a==4:
+            sound = AudioSegment.from_mp3('Sounds/Cow_5.wav')
+        elif a==5:
+            sound = AudioSegment.from_mp3('Sounds/Cow_6.wav')
         play(sound)
 
     def back(self):
